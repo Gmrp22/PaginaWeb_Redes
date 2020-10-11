@@ -1,0 +1,19 @@
+html {
+  background-color: #e8e8e8;
+}
+
+.container-login {
+  background-color: #e8e8e8;
+  padding: 30px 0;
+}
+
+.form-container {
+  margin: 10px 10px;
+}
+
+.form-container label {
+  width: 230px;
+}
+.form-container input {
+  width: 450px;
+}

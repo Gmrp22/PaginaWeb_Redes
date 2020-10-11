@@ -1,0 +1,12 @@
+{% extends "domains/base.html" %} {% block title %} Inicio | Dominios {%endblock%} 
+{% block bodyblock %}
+<div class="container-login">
+  <div class="container" >
+    {% if user.is_authenticated %}
+    <h2>Hola! {{ user.username }}</h2>
+    {% else %}
+    <h2>Porfavor inicie sesion o registrese</h2>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

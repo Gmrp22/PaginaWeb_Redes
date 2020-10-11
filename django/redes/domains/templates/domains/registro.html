@@ -1,0 +1,29 @@
+{% extends "domains/base.html" %} {% load static %} {% block bodyblock %}
+<div class="container-login">
+  <div class="container container-login" style="text-aling: center">
+    {% if registered %}
+    <h1>Gracias por registrarse!</h1>
+    {% else %}
+    <h1>Registro</h1>
+    <h3>llene el formulario</h3>
+    <form
+      class="form-container"
+      style="text=align: center"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      {% csrf_token %} {{ user_form.as_p }}
+      <div style="text-align: center">
+        <input
+          class="login-btn btn btn-primary"
+          type="submit"
+          name=""
+          value="Registrarse"
+        />
+      </div>
+    </form>
+
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
