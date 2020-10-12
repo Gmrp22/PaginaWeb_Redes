@@ -12,13 +12,13 @@
         </tr>
       </thead>
       <tbody>
+        {% for domain in domains %}
         <tr>
-          {% for domain in domains %}
           <td>{{ domain.domain }}</td>
           <td>{{ domain.desciprion }}</td>
           <td>{{ domain.domain_user }}</td>
-          {% endfor %}
         </tr>
+        {% endfor %}
       </tbody>
     </table>
     {% else %}
