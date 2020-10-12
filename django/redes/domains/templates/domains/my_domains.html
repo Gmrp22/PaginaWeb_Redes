@@ -1,0 +1,30 @@
+{% extends "domains/base.html" %} {% load static %} {% block bodyblock %}
+<div class="container-login">
+  <div class="container container-login" style="text-aling: center">
+    {% if domains %}
+    <a href="{% url 'domains:create_domain' %}">Crear un Dominio</a>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Dominio</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Usuario</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for domain in domains %}
+        <tr>
+          <td>{{ domain.domain }}</td>
+          <td>{{ domain.desciprion }}</td>
+          <td>{{ domain.domain_user }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <h1>No hay dominios registrados!</h1>
+    <a href="{% url 'domains:create_domain' %}">Crear un Dominio</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
