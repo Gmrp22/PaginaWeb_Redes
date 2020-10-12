@@ -3,7 +3,10 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
-from .forms import UserForm
+from .forms import UserForm, DomainForm
+from .models import domainUser
+from django.template import RequestContext
+from django.shortcuts import render
 
 
 def index(request):
@@ -19,6 +22,33 @@ def special(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+@login_required
+def createDominio(request):
+    created = False
+    if request.method == 'POST':
+        domain_form = DomainForm(data=request.POST)
+        if domain_form.is_valid():
+            domain = domain_form.save(commit=False)
+            domain.user = request.user
+            domain.save()
+            created = True
+            # TODO Call script domain.domain, domain.domain_user, domain.passwrd
+        else:
+            print(domain_form.errors)
+    else:
+        domain_form = DomainForm()
+    return render(request, 'domains/domain.html', {'domain_form': domain_form, 'created': created})
+
+
+@login_required
+def dominios(request):
+    domains_list = domainUser.objects.filter(user=request.user)
+
+    context_dict = {'domains': domains_list}
+
+    return render(request, 'domains/my_domains.html', context_dict)
 
 
 def register(request):
