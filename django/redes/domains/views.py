@@ -34,7 +34,8 @@ def createDominio(request):
             domain.user = request.user
             domain.save()
             created = True
-            # TODO Call script domain.domain, domain.domain_user, domain.passwrd
+            # print(domain.domain, domain.domain_user, domain.passwrd, domain.user)
+            # TODO Call script domain.domain, domain.domain_user, domain.passwrd, domain.user
         else:
             print(domain_form.errors)
     else:
