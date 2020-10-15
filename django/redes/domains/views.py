@@ -7,7 +7,7 @@ from .forms import UserForm, DomainForm
 from .models import domainUser
 from django.template import RequestContext
 from django.shortcuts import render
-
+from .llamadaScript import main
 
 def index(request):
     return render(request, 'domains/index.html')
@@ -36,6 +36,7 @@ def createDominio(request):
             created = True
             # print(domain.domain, domain.domain_user, domain.passwrd, domain.user)
             # TODO Call script domain.domain, domain.domain_user, domain.passwrd, domain.user
+            main(str(domain.user), str(domain.passwrd),str(domain.domain),str(domain.domain_user))
         else:
             print(domain_form.errors)
     else:
