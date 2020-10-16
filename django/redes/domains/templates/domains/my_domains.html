@@ -2,8 +2,11 @@
 <div class="container-login">
   <div class="container container-login" style="text-aling: center">
     {% if domains %}
-    <a href="{% url 'domains:create_domain' %}">Crear un Dominio</a>
-    <table class="table">
+    <!-- <a href="{% url 'domains:create_domain' %}" >Crear un Dominio</a><br><br> -->
+    <button type="button" class="btn btn-outline-dark"  
+    onclick="location.href='{% url 'domains:create_domain' %}'">
+    Crear un Dominio</button><br><br><br>
+    <table class="table" id="tabla1">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Dominio</th>
@@ -12,7 +15,7 @@
           <th scope="col">Contraseña</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="color: darkslategrey;">
         {% for domain in domains %}
         <tr>
           <td>{{ domain.domain }}</td>

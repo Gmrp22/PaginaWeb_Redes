@@ -3,7 +3,7 @@
 <div class="container-login">
   <div class="container">
     {% if user.is_authenticated %}
-    <h2>Hola! {{ user.username }}</h2>
+    <h2>Hola! &nbsp;{{ user.username }}</h2>
     {% else %}
     <h2>Por favor inicie sesión ó registrese</h2>
     {% endif %}
