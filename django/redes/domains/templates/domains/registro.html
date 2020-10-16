@@ -4,9 +4,9 @@
     {% if registered %}
     <h1 style="font-family: 'Audiowide';">Gracias por registrarse!</h1>
     {% else %}
-    <h1 style="font-family: 'Audiowide';">Registro</h1><br><br>
+    <h1 style="font-family: 'Audiowide';">Registro</h1><br>
     <h4>Llene el formulario</h4><br>
-    <form
+    <form 
       class="form-container"
       style="text=align: center"
       enctype="multipart/form-data"
@@ -15,10 +15,11 @@
       {% csrf_token %} {{ user_form.as_p }}
       <div style="text-align: center">
         <input
-          class="login-btn btn btn-primary"
+          class="login-btn btn btn-primary "
           type="submit"
           name=""
           value="Registrarse"
+          style="width: 200px;"
         />
       </div>
     </form>

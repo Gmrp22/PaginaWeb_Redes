@@ -7,7 +7,8 @@
     <button type="button" class="btn btn-outline-dark"  
     onclick="location.href='{% url 'domains:create_domain' %}'">
     Crear un Dominio</button><br><br><br>
-    <table class="table" id="tabla1">
+    <div class="container">
+    <table class="table" style="border-style: solid;">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Dominio</th>
@@ -16,7 +17,7 @@
           <th scope="col">Contraseña</th>
         </tr>
       </thead>
-      <tbody style="color: darkslategrey;">
+      <tbody>
         {% for domain in domains %}
         <tr>
           <td>{{ domain.domain }}</td>
@@ -27,6 +28,8 @@
         {% endfor %}
       </tbody>
     </table>
+  </div>
+
     {% else %}
     <h1>No hay dominios registrados!</h1>
     <a href="{% url 'domains:create_domain' %}">Crear un Dominio</a>

@@ -1,24 +1,23 @@
 {% extends 'domains/base.html' %}{% block bodyblock %}
 <section class="container-login">
   <div class="container">
+    <h1 style="font-family: 'Audiowide'; text-align: center;">INICIO DE SESION</h1>
     <div class="row justify-content-center">
       <div class="container-login col-6">
         <form method="post" action="{% url 'domains:user_login' %}">
           {% csrf_token %} {# A more "HTML" way of creating the login form#}
           <div class="form-group">
             <label for="username">Usuario:</label><br>
-            <input type="text" class="form-control" name="username"
-            aria-describedby="emailHelp" /
-          </div><br>
-          <div class="form-group">
-            <label for="password">Constrseña</label>
-            <input type="password" class="form-control" name="password" />
-          </div><br>
-          <div style="text-align: center">
-            <button type="submit" class="btn btn-outline-primary" style="width: 200px;">
-              Login
-            </button>
-          </div>
+            <input type="text" class="form-control" name="username" aria-describedby="emailHelp" </div><br>
+            <div class="form-group">
+              <label for="password">Constrseña</label>
+              <input type="password" class="form-control" name="password" />
+            </div><br>
+            <div style="text-align: center">
+              <button type="submit" class="btn btn-outline-primary" style="width: 200px;">
+                Login
+              </button>
+            </div>
         </form>
       </div>
     </div>
